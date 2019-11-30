@@ -9,8 +9,8 @@ export class UsersService {
   constructor(public http: HttpClient) {}
 
   getUserByEmail(email: string): Observable<User>  {
-    return this.http.get<User>(`http://localhost:3000/users?email=${email}`)
-      .pipe(map((responce: User) => {
+    return this.http.get(`http://localhost:3000/users?email=${email}`)
+      .pipe(map((responce) => {
         return {
           //оператор spread разбивает массив responce на элементы в этом массиве
           //сразу после спред нас интересует нулевой элемент-объект
@@ -19,5 +19,9 @@ export class UsersService {
           ...responce[0] ? responce[0] : undefined
         }
       }))
+  }
+
+  createNewUser(user: User): Observable<User> {
+    return this.http.post<User>('http://localhost:3000/users', user)
   }
 }

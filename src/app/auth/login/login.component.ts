@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UsersService} from '../../shared/services/users.service';
 import {Message, User} from '../../shared/interfaces';
+import {AuthService} from '../../shared/services/auth.service';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +15,22 @@ export class LoginComponent implements OnInit {
   form: FormGroup
   message: Message = { type: 'danger', text: '' }
 
-  constructor(private usersService: UsersService) { }
+  constructor(
+    private usersService: UsersService,
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit() {
+    //!!!!!!так можно отлавливать query параметры в роуте и обрабатывать их!!!!!
+    // this.route.queryParams
+    //   .subscribe((params: Params) => {
+    //     if(params['param1'] === true){
+    //      //logic
+    //     }
+    //   })
+
     this.form = new FormGroup({
       'email': new FormControl(null, [
         Validators.required,
@@ -42,7 +57,10 @@ export class LoginComponent implements OnInit {
       .subscribe((user: User) => {
         if(user.email === formData.email) {
           if(user.password === formData.password) {
-            //logic
+            this.message.text = ''
+            window.localStorage.setItem('user', JSON.stringify(user))
+            this.authService.login()
+            //this.router.navigate([''])
           }
           else {
             this.showMessage("Пароль не верный")

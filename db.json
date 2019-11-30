@@ -5,6 +5,12 @@
       "email": "polyakovigo@yandex.ru",
       "password": "123456",
       "name": "Администратор"
+    },
+    {
+      "email": "thelate@yandex.ru",
+      "password": "123123",
+      "name": "123123",
+      "id": 2
     }
   ],
   "bill": {
