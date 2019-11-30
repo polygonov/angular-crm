@@ -42,7 +42,7 @@ export class RegistrationComponent implements OnInit {
       .subscribe((user: User) => {
         window.localStorage.setItem('user', JSON.stringify(user))
         this.authService.login()
-        //this.router.navigate([''])
+        this.router.navigate(['/system/bill'])
 
         //можно было передать query параметры в логин компонент, но смысла нет
         // this.router.navigate(['/login'], {
@@ -57,7 +57,7 @@ export class RegistrationComponent implements OnInit {
     return new Promise((resolve, reject) => {
       this.usersService.getUserByEmail(control.value)
         .subscribe((user: User) => {
-          if (user) {
+          if (user.email === control.value) {
             resolve({forbiddenEmail: true})
           } else {
             resolve(null)
