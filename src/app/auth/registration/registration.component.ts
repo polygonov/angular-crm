@@ -42,7 +42,7 @@ export class RegistrationComponent implements OnInit {
       .subscribe((user: User) => {
         window.localStorage.setItem('user', JSON.stringify(user))
         this.authService.login()
-        this.router.navigate(['/system/bill'])
+        this.router.navigate(['/system', 'bill'])
 
         //можно было передать query параметры в логин компонент, но смысла нет
         // this.router.navigate(['/login'], {
