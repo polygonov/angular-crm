@@ -8,6 +8,7 @@ import { UsersService } from './shared/services/users.service';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from './shared/services/auth.service';
 import {SystemModule} from './system/system.module';
+import {SettingsService} from "./shared/services/settings.service";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {SystemModule} from './system/system.module';
   ],
   providers: [
     UsersService,
-    AuthService
+    AuthService,
+    SettingsService
   ],
   bootstrap: [AppComponent]
 })

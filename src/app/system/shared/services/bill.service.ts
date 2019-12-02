@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {SettingsService} from "../../../shared/services/settings.service";
 
 export interface Bill {
   value: number,
@@ -12,10 +13,13 @@ export interface Bill {
 })
 export class BillService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    public settingsService: SettingsService
+  ) { }
 
   getBill = (): Observable<Bill> => {
-    return this.http.get<Bill>('http://localhost:3000/bill')
+    return this.http.get<Bill>(`${this.settingsService.baseUrl}bill`)
   }
 
   getCurrency = (): Observable<any> => {

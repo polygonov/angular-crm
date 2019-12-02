@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Bill} from "../../shared/services/bill.service";
 
 @Component({
   selector: 'app-bill-card',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BillCardComponent implements OnInit {
 
+  @Input() bill: Bill
+  @Input() currency: any
+
+  USD: string
+  EUR: string
+
   constructor() { }
 
   ngOnInit() {
+    this.EUR = (this.bill.value/this.currency.EUR).toFixed(2)
+    this.USD = (this.bill.value/this.currency.USD).toFixed(2)
   }
 
 }

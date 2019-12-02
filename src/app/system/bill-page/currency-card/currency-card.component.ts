@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-currency-card',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrencyCardComponent implements OnInit {
 
+  @Input() currency: any
+
+  date: Date
+
+  currencies: string[] = ['EUR', 'USD']
+
   constructor() { }
 
   ngOnInit() {
+    this.date = new Date()
   }
 
 }

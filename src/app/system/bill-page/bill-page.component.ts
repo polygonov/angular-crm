@@ -11,6 +11,10 @@ export class BillPageComponent implements OnInit, OnDestroy {
 
   sub: Subscription
 
+  currency: any
+  bill: Bill
+  isLoaded = false
+
   constructor(
     private billService: BillService
   ) { }
@@ -23,13 +27,24 @@ export class BillPageComponent implements OnInit, OnDestroy {
       this.billService.getBill(),
       this.billService.getCurrency()
     ]).subscribe((data: [Bill, any]) => {
-      console.log('RESULT', data)
+      this.bill = data[0]
+      this.currency = {RUB: 1, EUR: data[1].Valute.EUR.Value, USD: data[1].Valute.USD.Value}
+      this.isLoaded = true
+      this.sub.unsubscribe()
     })
 
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe()
   }
 
+  onRefresh() {
+    this.isLoaded = false
+    this.sub = this.billService.getCurrency()
+      .subscribe((data: any) => {
+        this.currency = {RUB: 1, EUR: data.Valute.EUR.Value, USD: data.Valute.USD.Value}
+        this.isLoaded = true
+        this.sub.unsubscribe()
+      })
+  }
 }

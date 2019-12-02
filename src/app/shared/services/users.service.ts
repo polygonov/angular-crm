@@ -3,13 +3,17 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {User} from '../interfaces';
 import {map} from 'rxjs/operators';
+import {SettingsService} from "./settings.service";
 
 @Injectable()
 export class UsersService {
-  constructor(public http: HttpClient) {}
+  constructor(
+    public http: HttpClient,
+    public settingsService: SettingsService
+  ) {}
 
   getUserByEmail(email: string): Observable<User>  {
-    return this.http.get(`http://localhost:3000/users?email=${email}`)
+    return this.http.get(`${this.settingsService.baseUrl}users?email=${email}`)
       .pipe(map((responce) => {
         return {
           //оператор spread разбивает массив responce на элементы в этом массиве
@@ -22,6 +26,6 @@ export class UsersService {
   }
 
   createNewUser(user: User): Observable<User> {
-    return this.http.post<User>('http://localhost:3000/users', user)
+    return this.http.post<User>(`${this.settingsService.baseUrl}users`, user)
   }
 }
