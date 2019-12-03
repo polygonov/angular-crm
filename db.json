@@ -32,6 +32,11 @@
       "id": 3,
       "name": "Машина",
       "capacity": 7000
+    },
+    {
+      "name": "Спорт",
+      "capacity": 1000,
+      "id": 4
     }
   ],
   "events": [

@@ -18,4 +18,12 @@ export class CategoriesService {
     return this.http.post<Category>(`${this.settingsService.baseUrl}categories`, category)
   }
 
+  getCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(`${this.settingsService.baseUrl}categories`)
+  }
+
+  updateCategory(category: Category): Observable<Category> {
+    return this.http.put<Category>(`${this.settingsService.baseUrl}categories/${category.id}`, category)
+  }
+
 }

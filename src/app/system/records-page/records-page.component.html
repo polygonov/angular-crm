@@ -5,7 +5,7 @@
   </h3>
 </div>
 
-<section class="section">
+<section class="section" *ngIf="isLoaded; else notLoaded">
   <div class="row">
     <div class="col-md-6">
       <app-add-event></app-add-event>
@@ -16,8 +16,17 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <app-edit-category></app-edit-category>
+      <app-edit-category
+        [categories]="categories"
+        (onCategoryEdit)="categoryWasEdited($event)"
+      ></app-edit-category>
     </div>
   </div>
 </section>
+
+<ng-template #notLoaded>
+  <section class="section">
+    Loading...
+  </section>
+</ng-template>
 
