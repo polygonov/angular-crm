@@ -15,3 +15,12 @@ export interface Category {
   capacity: number,
   id?: number
 }
+
+export interface CRMEvent {
+  type: string,
+  amount: number,
+  category: number,
+  date: string,
+  id?: number,
+  description: string
+}

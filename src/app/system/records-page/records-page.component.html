@@ -8,7 +8,9 @@
 <section class="section" *ngIf="isLoaded; else notLoaded">
   <div class="row">
     <div class="col-md-6">
-      <app-add-event></app-add-event>
+      <app-add-event
+        [categories]="categories"
+      ></app-add-event>
     </div>
     <div class="col-md-6">
       <app-add-category (onCategoryAdd)="newCategoryAdded($event)"></app-add-category>
@@ -20,6 +22,20 @@
         [categories]="categories"
         (onCategoryEdit)="categoryWasEdited($event)"
       ></app-edit-category>
+    </div>
+    <div class="col-md-6" style="display: block; text-align: center;">
+      <hr>
+      <span>Это тестовый блок - работа с ng2-charts<br>(charts.js for angular)</span>
+      <hr>
+      <canvas baseChart
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins">
+      </canvas>
     </div>
   </div>
 </section>
