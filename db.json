@@ -14,7 +14,7 @@
     }
   ],
   "bill": {
-    "value": 100000,
+    "value": 101000,
     "currency": "RUB"
   },
   "categories": [
@@ -37,6 +37,11 @@
       "name": "Спорт",
       "capacity": 1000,
       "id": 4
+    },
+    {
+      "name": "Развлечения",
+      "capacity": 10000,
+      "id": 5
     }
   ],
   "events": [
@@ -79,6 +84,22 @@
       "date": "10.06.2017 14:01:58",
       "id": 5,
       "description": "Заправка + проход ТО"
+    },
+    {
+      "amount": 1000,
+      "category": 1,
+      "date": "04.12.2019 16:44:10",
+      "description": "Тест",
+      "type": "income",
+      "id": 6
+    },
+    {
+      "amount": 1000,
+      "category": 1,
+      "date": "04.12.2019 17:17:33",
+      "description": "Тест",
+      "type": "income",
+      "id": 7
     }
   ]
 }

@@ -25,4 +25,8 @@ export class BillService {
   getCurrency = (): Observable<any> => {
     return this.http.get<any>('https://www.cbr-xml-daily.ru/daily_json.js')
   }
+
+  updateBill = (bill: Bill): Observable<Bill> => {
+    return this.http.put<Bill>(`${this.settingsService.baseUrl}bill`, bill)
+  }
 }

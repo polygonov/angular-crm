@@ -18,6 +18,7 @@ import { AddCategoryComponent } from './records-page/add-category/add-category.c
 import { EditCategoryComponent } from './records-page/edit-category/edit-category.component';
 import {CategoriesService} from "./shared/services/categories.service";
 import {ChartsModule} from 'ng2-charts';
+import {EventsService} from './shared/services/events.service';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import {ChartsModule} from 'ng2-charts';
   ],
   providers: [
     BillService,
-    CategoriesService
+    CategoriesService,
+    EventsService
   ]
 })
 export class SystemModule {

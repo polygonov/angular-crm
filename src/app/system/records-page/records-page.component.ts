@@ -50,19 +50,19 @@ export class RecordsPageComponent implements OnInit {
     // line Chart
     this.lineChartData = [
         { data: [65, 59, 80, 81, 56, 55, 40], label: 'Легенда I' },
-      ];
-    this.lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+      ]
+    this.lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
     this.lineChartOptions = {
       responsive: true,
-    };
+    }
     this.lineChartColors = [
       {
         borderColor: 'black',
         backgroundColor: 'rgba(0,0,0,0.3)',
       },
-    ];
-    this.lineChartLegend = true;
-    this.lineChartType = 'line';
-    this.lineChartPlugins = [];
+    ]
+    this.lineChartLegend = true
+    this.lineChartType = 'line'
+    this.lineChartPlugins = []
   }
 }
