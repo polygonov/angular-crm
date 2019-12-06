@@ -14,4 +14,8 @@ export class EventsService {
   addEvent(event: CRMEvent): Observable<CRMEvent> {
     return this.http.post<CRMEvent>(`${this.settingsService.baseUrl}events`, event)
   }
+
+  getEvents(): Observable<CRMEvent[]> {
+    return this.http.get<CRMEvent[]>(`${this.settingsService.baseUrl}events`)
+  }
 }

@@ -14,7 +14,7 @@
     }
   ],
   "bill": {
-    "value": 101000,
+    "value": 100600,
     "currency": "RUB"
   },
   "categories": [
@@ -100,6 +100,22 @@
       "description": "Тест",
       "type": "income",
       "id": 7
+    },
+    {
+      "amount": 500,
+      "category": 3,
+      "date": "06.12.2019 13:09:46",
+      "description": "Тест",
+      "type": "income",
+      "id": 8
+    },
+    {
+      "amount": 500,
+      "category": 1,
+      "date": "06.12.2019 13:18:37",
+      "description": "Тест",
+      "type": "income",
+      "id": 9
     }
   ]
 }
