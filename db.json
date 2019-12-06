@@ -14,7 +14,7 @@
     }
   ],
   "bill": {
-    "value": 100600,
+    "value": 99100,
     "currency": "RUB"
   },
   "categories": [
@@ -39,7 +39,7 @@
       "id": 4
     },
     {
-      "name": "Развлечения",
+      "name": "Отдых",
       "capacity": 10000,
       "id": 5
     }
@@ -116,6 +116,22 @@
       "description": "Тест",
       "type": "income",
       "id": 9
+    },
+    {
+      "amount": 1000,
+      "category": 4,
+      "date": "06.12.2019 17:51:12",
+      "description": "Посещение бассейна",
+      "type": "outcome",
+      "id": 10
+    },
+    {
+      "amount": 500,
+      "category": 5,
+      "date": "06.12.2019 17:51:34",
+      "description": "Поход в кино",
+      "type": "outcome",
+      "id": 11
     }
   ]
 }

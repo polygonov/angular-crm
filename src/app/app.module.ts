@@ -9,6 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from './shared/services/auth.service';
 import {SystemModule} from './system/system.module';
 import {SettingsService} from "./shared/services/settings.service";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {SettingsService} from "./shared/services/settings.service";
     AppRoutingModule,
     AuthModule,
     HttpClientModule,
-    SystemModule
+    SystemModule,
+    BrowserAnimationsModule
   ],
   providers: [
     UsersService,
