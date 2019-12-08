@@ -22,5 +22,6 @@ export interface CRMEvent {
   category: number,
   date: string,
   id?: number,
-  description: string
+  description: string,
+  catName?: string
 }
