@@ -8,18 +8,22 @@
           </div>
           <div class="form-inline pull-right m-r-2">
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Поиск...">
+              <input
+                type="text"
+                class="form-control"
+                [placeholder]="searchPlaceholder"
+                [(ngModel)]="searchValue"
+              >
             </div>
-            <div class="btn-group">
+            <div class="btn-group" appDropdown>
               <button type="button" class="btn btn-secondary dropdown-toggle ">
                 Параметр
               </button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+                <a class="dropdown-item" (click)="changeCriteria('amount')">Сумма</a>
+                <a class="dropdown-item" (click)="changeCriteria('date')">Дата</a>
+                <a class="dropdown-item" (click)="changeCriteria('category')">Категория</a>
+                <a class="dropdown-item" (click)="changeCriteria('type')">Тип</a>
               </div>
             </div>
           </div>
@@ -37,7 +41,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let event of events; let idx = index">
+            <tr *ngFor="let event of events | filter:searchValue:searchField; let idx = index">
               <th scope="row">{{ idx + 1 }}</th>
               <td>{{ event.amount.toFixed(2) }}</td>
               <td>{{ event.date }}</td>
