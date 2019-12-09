@@ -7,7 +7,6 @@ import { AuthModule } from './auth/auth.module';
 import { UsersService } from './shared/services/users.service';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from './shared/services/auth.service';
-import {SystemModule} from './system/system.module';
 import {SettingsService} from "./shared/services/settings.service";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -20,7 +19,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppRoutingModule,
     AuthModule,
     HttpClientModule,
-    SystemModule,
     BrowserAnimationsModule
   ],
   providers: [
