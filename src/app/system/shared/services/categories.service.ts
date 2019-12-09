@@ -26,4 +26,8 @@ export class CategoriesService {
     return this.http.put<Category>(`${this.settingsService.baseUrl}categories/${category.id}`, category)
   }
 
+  getCategoryById(id: string): Observable<Category> {
+    return this.http.get<Category>(`${this.settingsService.baseUrl}categories/${id}`)
+  }
+
 }

@@ -18,4 +18,8 @@ export class EventsService {
   getEvents(): Observable<CRMEvent[]> {
     return this.http.get<CRMEvent[]>(`${this.settingsService.baseUrl}events`)
   }
+
+  getEventById(id: string): Observable<CRMEvent> {
+    return this.http.get<CRMEvent>(`${this.settingsService.baseUrl}events/${id}`)
+  }
 }
