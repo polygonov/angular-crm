@@ -31,6 +31,13 @@ export class LoginComponent implements OnInit {
     //     }
     //   })
 
+    this.route.queryParams
+      .subscribe((params: Params) => {
+        if (params['accessDenies']) {
+          this.showMessage('Для работы с симтемой вам необходимо авторизоваться', 'warning')
+        }
+      })
+
     this.form = new FormGroup({
       'email': new FormControl(null, [
         Validators.required,
